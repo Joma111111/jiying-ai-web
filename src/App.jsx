@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { 
   Zap, Cpu, HardDrive, Monitor, Layers, 
   Menu, X, Download, MessageSquare, Phone, 
@@ -550,6 +551,8 @@ const LandingPage = () => {
       <footer className="py-10 text-center text-slate-600 text-sm border-t border-white/5 bg-[#030305]">
         <p>&copy; 2025 极影AI (newSmartAutoCut). All rights reserved.</p>
       </footer>
+
+      <Analytics />
 
       <style>{`
         .perspective-2000 { perspective: 2000px; }
