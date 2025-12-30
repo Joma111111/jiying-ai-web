@@ -111,10 +111,10 @@ const DOWNLOAD_OPTIONS = [
 ];
 
 const ASSETS = {
-  heroUI: "https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/176933256/6YHJ9QlKrL1mW37e.png?Expires=1766938565&Signature=Dsi3bjoFaB7zeexjqVEHholY2-iSCZBV-vie7kMu85pQ4d9wU3zGKDiVRG8VthKxVZG83XwvQFObbGPaK-eqfEkZJhOAeWcXS3miGIQJxGDoICAEmvV1oYude9fjFPP-ewgWgoSsXUQH1Nj6Q84GSgJ5Ooi1dYFTULo8eLzyy5yne-KKQD8vrYUcyOEBkpm0EoKabAizH4Y78-~3epDQjnthx2gJLJ0VRc03xP3piJbLurNkmBzrZSABRJJINVM~uRX0MNw0XrUtyIUDz~o~ZJE4RTHmkvm7cOF2ICiZZht1QkeakeSbYBSIxGWQ8wOdCHJxs7~4GUuqrwzH4r-eig__&Key-Pair-Id=K3USGZIKWMDCSX",
-  logo: "https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/176933256/isBCqstAvwRWH4tG.png?Expires=1766938576&Signature=UEylsM40lN2cK3ndwXjABZUKaEcs4dF9G~p5f-JzxIVivNRmlxjampnHrgUc8C7pYWOECAEiXzwIiDZXT3TcL6jyZAt5TcpbOfmAsNxCHXHhgDmQVNzvhzTXbqI1Hgn5AaktsWtM69BHtXxQW8U1nYjuCFprMgy18942Jhpq~sLuXhla0pWQYrU6aqxSclwMSlKZNlgQWWMOBqCNF-v11j6s5fsMOzYxIj40tjqvfToqZIlZkBH7KUvYzV9SiM8rdQzDB6R4r842lqWvxtEeqlLNv0A-3faWAbwGBM1jB0TpZytmNwfeKxzKGEefPb1Tt6Hzv14MQapvJRx~5xCvpg__&Key-Pair-Id=K3USGZIKWMDCSX",
-  qrCode: "https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/176933256/mnepsJPUpk9PSNXe.png?Expires=1766939166&Signature=gchUzlpUmTboK7Z85O0Wo316vPGYWO-NaXaJ4nbBkKt1-hpGjjOqzRb8JxR591200b2oAgAItofHSgAzjh7Jz-HIu9wiyXlrsj8sUXmscJzt-F6dFd9cEGpf-hg3FNjnOwOih-qw5wtbhzTskSFizguCvOHKyX36xiiLl2rOgnQGHMnoa6UTrRGAFTVmbw0SnGQKwxb83ZRk~X4V6-abrY-KzVjnS4Ma4ST0wexkoPLwCqSyeACXYBxpqhReHPOxfkChbjDPElD4~uDVhSz~96lB6DiWw1Ccc7c7vrn5VMbEi2RKyLOvz8fXBRLsPA1PkJaIDVzpKpbsoxlzQBIzhw__&Key-Pair-Id=K3USGZIKWMDCSX",
-  robotC4D: "https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/176933256/IFj6kAIyf2dS68jz.png?Expires=1766939273&Signature=XwylV4i7tP9o73s~arryH3Vtqg4QI8sONg5R0JsyH1yNSl9aulT2ZvJRkvNQQMNQbPALwUEQFIoqymnLPuIdk-WHafNuTCLKHJlDSqj3Cwq9xBrgCthc73OtJhrzyQrXdnY7CDYA8PeKgasPDF94JmdGagTkS9SENeX3kdxa~ly7VQ-sWu8recmhXB2Wmak8-Y5rjGGgiYVX3CrzozLF0gRUdJqk~c3J0AXxvVpj4CiNTbIsIf0l~c69a0eBnsYz~-0trekiM59MWApuAdoQElekYpw5w2ycTNtxt-NvHdLaRNDNR1Yv4QuArkcKpNlzw7gVidvlYvrSz2oUUYK9qw__&Key-Pair-Id=K3USGZIKWMDCSX"
+  heroUI: "/hero-ui.png",     // 对应软件截图
+  logo: "/logo.png",          // 对应原来的头像.png
+  qrCode: "/qrcode.png",      // 对应二维码
+  robotC4D: "/robot-c4d.png"  // 对应背景图
 };
 
 const LandingPage = () => {
