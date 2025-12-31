@@ -266,7 +266,7 @@ const LandingPage = () => {
                  ))}
                </div>
                <span>
-                 🔥 本站已累计服务超 <span className="text-cyan-400 font-bold">2,000+</span> 位创作者
+                 🔥 本站已累计服务超 <span className="text-cyan-400 font-bold">1500+</span> 位创作者
                </span>
             </div>
           </div>
@@ -336,7 +336,7 @@ const LandingPage = () => {
               <div className="w-16 h-16 rounded-full bg-cyan-500/10 flex items-center justify-center mb-6 text-cyan-400">
                 <ShieldCheck size={32} />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">官方正版授权</h3>
+              <h3 className="text-xl font-bold text-white mb-3">正版授权</h3>
               <p className="text-slate-400">官方正版激活码，安全无忧。</p>
             </div>
             <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center text-center relative overflow-hidden">
@@ -351,7 +351,7 @@ const LandingPage = () => {
               <div className="w-16 h-16 rounded-full bg-cyan-500/10 flex items-center justify-center mb-6 text-cyan-400">
                 <Gift size={32} />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">会员专属福利</h3>
+              <h3 className="text-xl font-bold text-white mb-3">永久会员专属福利</h3>
               <p className="text-slate-400">不定期分享剪辑素材与行业动态，助力您的创作之路。</p>
             </div>
           </div>
@@ -390,7 +390,7 @@ const LandingPage = () => {
               {/* 永久卡 */}
               <div className="px-6 py-4 rounded-xl bg-gradient-to-br from-cyan-900/40 to-black border border-cyan-500/30 flex flex-col items-center min-w-[160px] relative group hover:border-cyan-500/60 transition-all">
                 <div className="absolute -top-2 right-2 px-2 py-0.5 bg-cyan-500 text-black text-[10px] font-bold rounded-full">推荐</div>
-                <span className="text-slate-300 text-xs uppercase tracking-wider mb-1">永久会员</span>
+                <span className="text-slate-300 text-xs uppercase tracking-wider mb-1">永久会员【多模态全感知推理】</span>
                 <span className="text-2xl font-bold text-cyan-400 mb-2">¥998</span>
                 <button onClick={() => scrollToSection('contact')} className="w-full py-1.5 rounded-lg bg-cyan-500 text-black text-xs font-bold hover:bg-cyan-400 transition-colors">
                   立即购买
@@ -496,7 +496,7 @@ const LandingPage = () => {
                 </div>
                 <p className="text-yellow-200/80 text-sm leading-relaxed">
                   因精力有限，<span className="text-yellow-200 font-bold">技术支持/远程协助仅面向本代理商购卡用户</span>。
-                  咨询时请提供【激活码】核验，非本站订单，请联系原购买渠道，感谢理解。
+                  咨询时请提供【激活码】核验，非本代理商订单，请联系原购买渠道，感谢理解。
                 </p>
               </div>
 
