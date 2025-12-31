@@ -1,70 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Analytics } from '@vercel/analytics/react';
+// ❌ 已删除 Analytics 引用
 import { 
   Zap, Cpu, HardDrive, Monitor, Layers, 
   Menu, X, Download, MessageSquare, Phone, 
   Mail, ChevronRight, Play, Wand2, Globe,
   Video, Mic, Sparkles, Film, PlayCircle,
   ArrowRight, Cloud, HardDriveDownload, Check, Star,
-  AlertTriangle, Info, XCircle
+  AlertTriangle, Info, XCircle, ShieldCheck, 
+  Gift, Headphones, CreditCard, Users, ScanLine, Banknote, Key, Music, ExternalLink
 } from 'lucide-react';
 
 // ==========================================
-// 👇👇👇 1. 价格方案配置区 (已更新) 👇👇👇
-// ==========================================
-const PRICING_PLANS = [
-  {
-    name: "月度会员",
-    price: "¥198",
-    period: "/ 月",
-    desc: "适合初学者体验核心功能",
-    features: [
-      { text: "基础智能分镜剪辑", active: true },
-      { text: "基础语音合成", active: true },
-      { text: "快速上手指南", active: true },
-      { text: "全感知推理模块", active: false }, // ❌ 不包含
-      { text: "社区技术支持", active: false }    // ❌ 不包含
-    ],
-    btnText: "购买月卡",
-    isPopular: false,
-    color: "border-white/10"
-  },
-  {
-    name: "年度会员",
-    price: "¥498", 
-    period: "/ 年",
-    desc: "进阶创作，解锁更多AI能力",
-    features: [
-      { text: "包含月度版所有功能", active: true },
-      { text: "基础语音合成", active: true }, // ✅ 新增
-      { text: "社区技术支持服务", active: true },  // ❌ 不包含
-      { text: "全感知推理模块", active: false }, 
-      { text: "1对1 专属顾问", active: false }
-    ],
-    btnText: "购买年卡",
-    isPopular: false,
-    color: "border-blue-500/30"
-  },
-  {
-    name: "永久专业版",
-    price: "¥998",
-    period: "/ 永久授权",
-    desc: "一次付费，终身享有最强战力",
-    features: [
-      { text: "包含年度版所有功能", active: true },
-      { text: "全感知推理模块 (核心)", active: true, highlight: true }, // 🔥 核心功能
-      { text: "1对1 专属技术顾问", active: true },
-      { text: "社区会员分享", active: true },
-      { text: "不限视频题材", active: true }
-    ],
-    btnText: "立即抢购",
-    isPopular: true, // 推荐高亮
-    color: "border-cyan-500/50 bg-cyan-500/5"
-  }
-];
-
-// ==========================================
-// 👇👇👇 2. 视频教程配置区 👇👇👇
+// 👇👇👇 1. 视频教程配置区 👇👇👇
 // ==========================================
 const TUTORIAL_DATA = [
   { 
@@ -90,23 +37,15 @@ const TUTORIAL_DATA = [
 ];
 
 // ==========================================
-// 3. 下载链接配置
+// 2. 下载链接配置
 // ==========================================
 const DOWNLOAD_OPTIONS = [
   {
-    name: "飞书下载 (详细教程)", 
-    desc: "详细 · 专业 · 高效 ",
+    name: "飞书下载", 
+    desc: "内含详细安装教程 ",
     url: "https://ai.feishu.cn/wiki/IcHYwPOVSihluBk8gnscg5Z7nnf", 
-    // 👇 修改点：颜色改成了靛蓝色，去掉了 opacity-50 (半透明) 和 cursor-not-allowed (禁止图标)
     color: "bg-indigo-600 hover:bg-indigo-500", 
     icon: <Cloud size={20} />
-  },
-  {
-    name: "百度网盘下载",
-    desc: "文件较大 (6GB) · 推荐客户端",
-    url: "https://pan.baidu.com/s/1Lg_KTeNqP9x2oH-kNITY4w?pwd=f95s", 
-    color: "bg-blue-600 hover:bg-blue-500",
-    icon: <HardDriveDownload size={20} />
   }
 ];
 
@@ -181,8 +120,8 @@ const LandingPage = () => {
               <X size={24} />
             </button>
             
-            <h3 className="text-2xl font-bold text-white mb-2">选择下载方式</h3>
-            <p className="text-slate-400 text-sm mb-6">软件包大小约 6GB，推荐使用高速网盘下载</p>
+            <h3 className="text-2xl font-bold text-white mb-2">下载客户端</h3>
+            <p className="text-slate-400 text-sm mb-6">软件包大小约 6GB，请确保网络畅通</p>
             
             <div className="space-y-4">
               {DOWNLOAD_OPTIONS.map((opt, i) => (
@@ -234,15 +173,22 @@ const LandingPage = () => {
               <div className="absolute inset-0 bg-cyan-500 blur-lg opacity-0 group-hover:opacity-50 transition-opacity"></div>
               <img src={ASSETS.logo} alt="Logo" className="relative w-11 h-11 rounded-xl object-contain bg-white/5 border border-white/10" />
             </div>
+            
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-white tracking-wide">极影AI</span>
+              <div className="flex items-center gap-2">
+                <span className="text-xl font-bold text-white tracking-wide">极影AI</span>
+                <span className="px-1.5 py-0.5 rounded border border-cyan-500/30 bg-cyan-500/10 text-[10px] text-cyan-400 font-normal">
+                  授权代理商
+                </span>
+              </div>
               <span className="text-[10px] text-cyan-400 font-mono tracking-widest uppercase">newSmartAutoCut</span>
             </div>
+
           </div>
 
           <div className="hidden md:flex items-center space-x-12">
-            {['首页', '功能', '价格', '教程', '配置', '联系'].map((item, idx) => {
-              const ids = ['home', 'features', 'pricing', 'tutorials', 'specs', 'contact'];
+            {['首页', '功能', '服务', '教程', '配置', '联系'].map((item, idx) => {
+              const ids = ['home', 'features', 'service', 'tutorials', 'specs', 'contact'];
               return (
                 <button
                   key={item}
@@ -274,9 +220,13 @@ const LandingPage = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-blue-900/10 to-transparent blur-[120px] -z-10"></div>
 
         <div className="w-full px-4 md:px-12 text-center">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-cyan-400 text-xs font-mono tracking-wider mb-8 backdrop-blur-md animate-fade-in-up">
-            <Sparkles size={12} className="mr-2" />
-            全新发布 · 智能剪辑新纪元
+          
+          {/* ✅ 1. 放大并增强了“授权代理商”的显示效果 */}
+          <div className="inline-flex items-center gap-4 px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-600/20 border border-cyan-400/50 text-cyan-100 text-lg md:text-xl font-medium mb-10 backdrop-blur-md animate-fade-in-up shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+            <ShieldCheck size={28} className="text-cyan-400 shrink-0" />
+            <span>
+              本站为 <span className="text-cyan-400 font-bold">授权代理商</span> 运营，提供 <span className="text-cyan-400 font-bold">正版</span> 激活码与独家技术支持
+            </span>
           </div>
           
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-tight leading-[1.05] mb-8 animate-fade-in-up delay-100">
@@ -289,18 +239,36 @@ const LandingPage = () => {
           <p className="text-lg md:text-2xl text-slate-400 max-w-4xl mx-auto mb-16 leading-relaxed animate-fade-in-up delay-200">
             极影AI (newSmartAutoCut) 是一款集成深度推理模型的智能化剪辑工具。
             <br className="hidden md:block" />
-            从素材识别到成片输出，让复杂的剪辑工作变得前所未有的简单。
+            从导入视频到成片输出，让复杂的剪辑工作变得前所未有的简单。
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-24 animate-fade-in-up delay-300">
-            <button onClick={() => setShowDownloadModal(true)} className="px-12 py-5 bg-cyan-500 hover:bg-cyan-400 text-black text-lg rounded-xl font-bold transition-all shadow-[0_0_50px_rgba(6,182,212,0.4)] flex items-center justify-center gap-3">
-              <Download size={24} />
-              下载 Windows 版
-            </button>
-            <button onClick={() => scrollToSection('contact')} className="px-12 py-5 bg-white/5 hover:bg-white/10 text-white text-lg rounded-xl font-semibold border border-white/10 transition-all flex items-center justify-center gap-3 backdrop-blur-sm">
-              联系咨询
-              <ArrowRight size={20} />
-            </button>
+          <div className="flex flex-col items-center gap-8 mb-24 animate-fade-in-up delay-300">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <button onClick={() => setShowDownloadModal(true)} className="px-12 py-5 bg-cyan-500 hover:bg-cyan-400 text-black text-lg rounded-xl font-bold transition-all shadow-[0_0_50px_rgba(6,182,212,0.4)] flex items-center justify-center gap-3">
+                <Download size={24} />
+                下载 Windows 版
+              </button>
+              <button onClick={() => scrollToSection('contact')} className="px-12 py-5 bg-white/5 hover:bg-white/10 text-white text-lg rounded-xl font-semibold border border-white/10 transition-all flex items-center justify-center gap-3 backdrop-blur-sm">
+                联系咨询
+                <ArrowRight size={20} />
+              </button>
+            </div>
+
+            {/* ✅ 信任条 */}
+            <div className="flex items-center gap-3 text-sm text-slate-400 bg-white/[0.03] px-5 py-2 rounded-full border border-white/5">
+               <div className="flex -space-x-2">
+                 {[1,2,3,4].map(i => (
+                   <div key={i} className={`w-6 h-6 rounded-full border border-[#030305] flex items-center justify-center text-[10px] font-bold text-black ${
+                     ['bg-cyan-200', 'bg-purple-200', 'bg-blue-200', 'bg-white'][i-1]
+                   }`}>
+                     {['J', 'A', 'M', 'K'][i-1]}
+                   </div>
+                 ))}
+               </div>
+               <span>
+                 🔥 本站已累计服务超 <span className="text-cyan-400 font-bold">2,000+</span> 位创作者
+               </span>
+            </div>
           </div>
 
           <div className="relative w-full max-w-[90vw] mx-auto perspective-2000 animate-fade-in-up delay-500">
@@ -337,10 +305,10 @@ const LandingPage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { icon: <Wand2 />, title: "智能分镜剪辑", desc: "自动识别视频内容，精准切割分镜，去除冗余片段。" },
-              { icon: <Mic />, title: "AI 语音合成", desc: "内置多款高拟真语音模型，支持情感调节，媲美真人配音。" },
-              { icon: <Globe />, title: "多语种本地化", desc: "支持中视频、TikTok短剧、维语/哈语解说等跨语言创作。" },
-              { icon: <Video />, title: "全类型覆盖", desc: "无论是影视剧、动漫还是游戏录屏，都能完美处理。" },
-              { icon: <Zap />, title: "GPU 加速渲染", desc: "深度优化 N 卡性能，渲染速度提升 300%，创作快人一步。" },
+              { icon: <Mic />, title: "AI 语音合成", desc: "内置多款高拟真语音模型，克隆语音，媲美真人配音。" },
+              { icon: <Globe />, title: "多语种本地化", desc: "支持Tk中视频、Tk短剧、维语解说等多语言创作。" },
+              { icon: <Video />, title: "全类型覆盖", desc: "无论是影视剧、动漫还是电视连续剧，都能完美处理。" },
+              { icon: <Zap />, title: "GPU 加速渲染", desc: "深度优化 N 卡性能，视频解析速度提升 300%，创作快人一步。" },
               { icon: <Layers />, title: "一键成片", desc: "从文案到视频，全流程自动化，释放您的创作潜能。" },
             ].map((item, i) => (
               <div key={i} className="group p-10 rounded-3xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] hover:border-cyan-500/30 transition-all duration-300 backdrop-blur-sm">
@@ -355,77 +323,78 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* 💰 价格板块 (已更新) */}
-      <section id="pricing" className="py-32 relative bg-[#05050A] border-t border-white/5">
-        <div className="w-full px-6 md:px-12 lg:px-20">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">选择适合您的方案</h2>
-            <p className="text-slate-400 text-xl">灵活的付费模式，满足不同阶段的创作需求</p>
+      {/* 为什么选择本站 + 全网统一价格 */}
+      <section id="service" className="py-24 relative bg-[#05050A] border-y border-white/5">
+        <div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">为什么选择本站？</h2>
+            <p className="text-slate-400 text-lg">除了正版软件授权，我们还提供更多增值服务</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
-            {PRICING_PLANS.map((plan, i) => (
-              <div key={i} className={`relative p-8 rounded-3xl border ${plan.color} bg-[#0A0A0F] flex flex-col transition-transform hover:-translate-y-2 duration-300`}>
-                {plan.isPopular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan-500 text-black text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-[0_0_20px_rgba(6,182,212,0.4)]">
-                    <Star size={12} fill="black" /> 推荐方案
-                  </div>
-                )}
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold text-white">{plan.price}</span>
-                    <span className="text-slate-500 text-sm">{plan.period}</span>
-                  </div>
-                  <p className="text-slate-400 text-sm mt-4">{plan.desc}</p>
-                </div>
-                
-                <div className="flex-1 space-y-4 mb-8">
-                  {plan.features.map((feature, idx) => (
-                    <div key={idx} className={`flex items-start gap-3 ${!feature.active ? 'opacity-40' : ''}`}>
-                      <div className={`mt-1 w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${feature.active ? 'bg-white/10' : 'bg-transparent'}`}>
-                        {feature.active ? <Check size={12} className="text-cyan-400" /> : <XCircle size={14} className="text-slate-500" />}
-                      </div>
-                      <span className={`text-sm ${feature.highlight ? 'text-cyan-400 font-bold' : 'text-slate-300'}`}>
-                        {feature.text}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center text-center">
+              <div className="w-16 h-16 rounded-full bg-cyan-500/10 flex items-center justify-center mb-6 text-cyan-400">
+                <ShieldCheck size={32} />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">官方正版授权</h3>
+              <p className="text-slate-400">官方正版激活码，安全无忧。</p>
+            </div>
+            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center text-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none"></div>
+              <div className="w-16 h-16 rounded-full bg-cyan-500/10 flex items-center justify-center mb-6 text-cyan-400">
+                <Headphones size={32} />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">1对1 技术支持</h3>
+              <p className="text-slate-400">提供独家安装指导与新手入门答疑，拒绝“买完不管”，让您快速上手。</p>
+            </div>
+            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center text-center">
+              <div className="w-16 h-16 rounded-full bg-cyan-500/10 flex items-center justify-center mb-6 text-cyan-400">
+                <Gift size={32} />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">会员专属福利</h3>
+              <p className="text-slate-400">不定期分享剪辑素材与行业动态，助力您的创作之路。</p>
+            </div>
+          </div>
 
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className={`w-full py-4 rounded-xl font-bold text-sm transition-all ${
-                    plan.isPopular 
-                    ? 'bg-cyan-500 hover:bg-cyan-400 text-black shadow-[0_0_30px_rgba(6,182,212,0.2)]' 
-                    : 'bg-white/10 hover:bg-white/20 text-white'
-                  }`}
-                >
-                  {plan.btnText}
+          {/* 💰 价格公示条 */}
+          <div className="rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 border border-white/10 p-8 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+            <div className="flex items-center gap-6">
+              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                <CreditCard className="text-white" size={24} />
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white mb-1">全网统一官方定价</h4>
+                <p className="text-slate-400 text-sm">官方严格执行统一售价，无任何隐形消费，保障正版权益</p>
+              </div>
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-4">
+              {/* 月卡 */}
+              <div className="px-6 py-4 rounded-xl bg-black/30 border border-white/10 flex flex-col items-center min-w-[140px] group hover:border-white/30 transition-all">
+                <span className="text-slate-400 text-xs uppercase tracking-wider mb-1">月度会员</span>
+                <span className="text-2xl font-bold text-cyan-400 mb-2">¥198</span>
+                <button onClick={() => scrollToSection('contact')} className="w-full py-1.5 rounded-lg border border-white/20 text-xs text-white hover:bg-white hover:text-black transition-colors">
+                  点击购买
                 </button>
               </div>
-            ))}
-          </div>
-
-          {/* ⚠️ 算力说明板块 (新增) */}
-          <div className="max-w-4xl mx-auto bg-white/[0.03] border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start">
-            <div className="shrink-0 p-3 bg-yellow-500/10 rounded-xl text-yellow-500">
-              <AlertTriangle size={24} />
-            </div>
-            <div className="flex-1">
-              <h4 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                请悉知：会员费用与算力说明
-              </h4>
-              <div className="text-slate-400 text-sm space-y-2 leading-relaxed">
-                <p>1. <span className="text-slate-200 font-medium">会员费用</span>：仅包含软件的使用授权（如月卡/年卡/永久卡）。</p>
-                <p>2. <span className="text-slate-200 font-medium">算力费用</span>：软件激活后，制作视频需要额外充值算力。</p>
-                <p className="pl-4 border-l-2 border-white/10 my-2 italic">
-                   参考消耗：原视频 90 分钟，生成 2000 字解说视频，约需充值 <span className="text-cyan-400">0.8 元</span> 左右。<br/>
-                   具体消耗请以软件后台明确标注为准。
-                </p>
-                <p className="text-red-400/80 flex items-center gap-1 mt-3">
-                  <Info size={14} /> 卡密一经激活，无法退换，请确认需求后购买。
-                </p>
+              
+              {/* 年卡 */}
+              <div className="px-6 py-4 rounded-xl bg-black/30 border border-white/10 flex flex-col items-center min-w-[140px] group hover:border-white/30 transition-all">
+                <span className="text-slate-400 text-xs uppercase tracking-wider mb-1">年度会员</span>
+                <span className="text-2xl font-bold text-cyan-400 mb-2">¥498</span>
+                <button onClick={() => scrollToSection('contact')} className="w-full py-1.5 rounded-lg border border-white/20 text-xs text-white hover:bg-white hover:text-black transition-colors">
+                  点击购买
+                </button>
+              </div>
+              
+              {/* 永久卡 */}
+              <div className="px-6 py-4 rounded-xl bg-gradient-to-br from-cyan-900/40 to-black border border-cyan-500/30 flex flex-col items-center min-w-[160px] relative group hover:border-cyan-500/60 transition-all">
+                <div className="absolute -top-2 right-2 px-2 py-0.5 bg-cyan-500 text-black text-[10px] font-bold rounded-full">推荐</div>
+                <span className="text-slate-300 text-xs uppercase tracking-wider mb-1">永久会员</span>
+                <span className="text-2xl font-bold text-cyan-400 mb-2">¥998</span>
+                <button onClick={() => scrollToSection('contact')} className="w-full py-1.5 rounded-lg bg-cyan-500 text-black text-xs font-bold hover:bg-cyan-400 transition-colors">
+                  立即购买
+                </button>
               </div>
             </div>
           </div>
@@ -434,12 +403,12 @@ const LandingPage = () => {
       </section>
 
       {/* 教程板块 */}
-      <section id="tutorials" className="py-32 border-y border-white/5">
+      <section id="tutorials" className="py-32 border-t border-white/5">
          <div className="w-full px-6 md:px-12 lg:px-20">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">快速上手指南</h2>
-              <p className="text-slate-400 text-lg">点击封面即可播放视频</p>
+              <p className="text-slate-400 text-lg">本站提供保姆级教程，点击封面即可播放</p>
             </div>
             <button className="text-cyan-400 hover:text-cyan-300 flex items-center gap-2 transition-colors text-lg">
               查看更多教程 <ArrowRight size={20} />
@@ -488,7 +457,7 @@ const LandingPage = () => {
               <div className="p-8 hidden md:block">说明</div>
             </div>
             {[
-              { name: "CPU", min: "i5-8400 / R5 2600", rec: "i7-12700K / R9 5900X", note: "视频渲染核心依赖" },
+              { name: "CPU", min: "i5-8400 / R5 2600", rec: "i7-12700K / R9 5900X", note: "视频编解码核心依赖" },
               { name: "显卡", min: "N卡GTX 1060 (6GB)", rec: "N卡RTX 3060 (12GB) / 4070", note: "GPU加速和indexTTS克隆配音必须用N卡" },
               { name: "内存", min: "16GB DDR4", rec: "32GB DDR4/DDR5", note: "多进程并发需求" },
               { name: "硬盘", min: "SATA SSD 500G", rec: "NVMe M.2 SSD 1TB+", note: "素材读写速度" },
@@ -502,7 +471,7 @@ const LandingPage = () => {
             ))}
           </div>
           <p className="text-center text-slate-600 mt-8 font-mono">
-            * 仅支持 Windows 10 / 11 (64-bit) 操作系统
+            * 仅支持 Windows 10专业版 / 11专业版 (64-bit) 操作系统
           </p>
         </div>
       </section>
@@ -514,10 +483,23 @@ const LandingPage = () => {
           <div className="bg-gradient-to-br from-[#10101A] to-[#05050A] border border-white/10 rounded-[2.5rem] p-10 md:p-20 flex flex-col md:flex-row items-center justify-between gap-20 shadow-2xl">
             <div className="flex-1 text-center md:text-left">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">准备好提升创作效率了吗？</h2>
-              <p className="text-slate-400 mb-12 text-xl leading-relaxed">
+              <p className="text-slate-400 mb-8 text-xl leading-relaxed">
                 立即下载极影AI，加入数万创作者的行列。<br/>
                 如有疑问，欢迎随时联系我们。
               </p>
+
+              {/* ✅ 售后服务界定声明 */}
+              <div className="mb-10 p-5 rounded-xl bg-yellow-500/10 border border-yellow-500/20 text-left">
+                <div className="flex items-center gap-2 text-yellow-500 font-bold mb-2">
+                  <AlertTriangle size={20} />
+                  <span>售后服务说明</span>
+                </div>
+                <p className="text-yellow-200/80 text-sm leading-relaxed">
+                  因精力有限，<span className="text-yellow-200 font-bold">技术支持/远程协助仅面向本代理商购卡用户</span>。
+                  咨询时请提供【激活码】核验，非本站订单，请联系原购买渠道，感谢理解。
+                </p>
+              </div>
+
               <div className="flex flex-col gap-5 text-slate-300 text-lg">
                 <div className="flex items-center justify-center md:justify-start gap-4">
                   <Mail size={22} className="text-cyan-500"/>
@@ -527,20 +509,68 @@ const LandingPage = () => {
                   <Phone size={22} className="text-green-500"/>
                   <span className="font-mono">18605815719</span>
                 </div>
+                
+                {/* ✅ 抖音跳转链接 (已更新为您提供的链接) */}
+                <a 
+                  href="https://v.douyin.com/tT8OAUGMh5s/" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="flex items-center justify-center md:justify-start gap-4 group/douyin cursor-pointer"
+                >
+                  <div className="w-[22px] h-[22px] bg-black rounded-md flex items-center justify-center border border-white/20 group-hover/douyin:border-cyan-400 transition-colors">
+                    <Music size={14} className="text-white group-hover/douyin:text-cyan-400" />
+                  </div>
+                  <span className="font-mono group-hover/douyin:text-cyan-400 transition-colors flex items-center gap-2">
+                    抖音：极影AI (小岳老师)
+                    <ExternalLink size={14} className="opacity-0 group-hover/douyin:opacity-100 transition-opacity"/>
+                  </span>
+                </a>
               </div>
+
               <div className="mt-12">
                 <button onClick={() => setShowDownloadModal(true)} className="w-full md:w-auto px-12 py-5 bg-white text-black text-lg font-bold rounded-xl hover:bg-cyan-400 transition-colors">
                   下载 Windows 客户端
                 </button>
               </div>
             </div>
+            
+            {/* ✅ 购买区域 */}
             <div className="relative group shrink-0">
               <div className="absolute -inset-6 bg-gradient-to-tr from-cyan-500 to-purple-500 rounded-3xl opacity-30 blur-2xl group-hover:opacity-60 transition duration-700"></div>
-              <div className="relative bg-white p-6 rounded-2xl shadow-2xl transform transition-transform group-hover:scale-105 duration-300">
-                <img src={ASSETS.qrCode} alt="微信二维码" className="w-56 h-56 object-contain" />
-                <div className="pt-5 text-center border-t border-slate-100 mt-4">
-                  <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">WeChat Support</p>
-                  <p className="text-slate-900 font-bold text-lg">扫码微信咨询</p>
+              <div className="relative bg-white p-8 rounded-2xl shadow-2xl transform transition-transform group-hover:scale-105 duration-300 max-w-sm">
+                
+                {/* 购买流程指引 */}
+                <div className="flex items-center justify-between text-xs text-slate-500 mb-6 border-b border-slate-100 pb-4">
+                  <div className="flex flex-col items-center gap-1">
+                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+                      <ScanLine size={16} />
+                    </div>
+                    <span>1.扫码</span>
+                  </div>
+                  <div className="h-px w-8 bg-slate-200"></div>
+                  <div className="flex flex-col items-center gap-1">
+                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+                      <Banknote size={16} />
+                    </div>
+                    <span>2.付款</span>
+                  </div>
+                  <div className="h-px w-8 bg-slate-200"></div>
+                  <div className="flex flex-col items-center gap-1">
+                    <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                      <Key size={16} />
+                    </div>
+                    <span className="font-bold text-green-600">3.发码</span>
+                  </div>
+                </div>
+
+                <img src={ASSETS.qrCode} alt="微信二维码" className="w-56 h-56 object-contain mx-auto" />
+                
+                <div className="pt-5 text-center mt-2">
+                  <p className="text-slate-900 font-bold text-xl mb-1">扫码添加微信咨询购买</p>
+                  <p className="text-xs text-slate-500">
+                    <span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-1"></span>
+                    代理商在线 · 确认电脑配置后，付款秒发卡密
+                  </p>
                 </div>
               </div>
             </div>
@@ -548,11 +578,18 @@ const LandingPage = () => {
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="py-10 text-center text-slate-600 text-sm border-t border-white/5 bg-[#030305]">
-        <p>&copy; 2025 极影AI (newSmartAutoCut). All rights reserved.</p>
+        <div className="max-w-4xl mx-auto px-6 flex flex-col gap-4">
+          <p>&copy; 2025 jiyingai.com 极影授权服务站. All rights reserved.</p>
+          <div className="text-xs text-slate-700 leading-relaxed border-t border-white/5 pt-4">
+            <p className="mb-1 font-bold">免责声明：</p>
+            <p>1. 本站为极影AI(newSmartAutoCut)授权代理商运营的销售与服务平台，非极影官方网站。</p>
+            <p>2. 本站所售软件均为官方正版授权，同步官方售后。</p>
+            <p>3. 网站内出现的“极影”、“SmartAutoCut”等商标及软件著作权归原公司所有，本站仅作产品展示与销售用途。</p>
+          </div>
+        </div>
       </footer>
-
-      <Analytics />
 
       <style>{`
         .perspective-2000 { perspective: 2000px; }
