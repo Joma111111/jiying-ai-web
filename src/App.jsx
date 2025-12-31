@@ -540,7 +540,7 @@ const LandingPage = () => {
                 <img src={ASSETS.qrCode} alt="微信二维码" className="w-56 h-56 object-contain" />
                 <div className="pt-5 text-center border-t border-slate-100 mt-4">
                   <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">WeChat Support</p>
-                  <p className="text-slate-900 font-bold text-lg">扫码添加咨询</p>
+                  <p className="text-slate-900 font-bold text-lg">扫码微信咨询</p>
                 </div>
               </div>
             </div>
