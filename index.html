@@ -1,25 +1,295 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 👇 这里是修改后的图标引用，假设你放了一张 logo.png 在 public 文件夹 -->
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <!-- ========================================================================== -->
+    <!-- 🟢 SEO 核心配置区 -->
+    <!-- ========================================================================== -->
+    <title>极影AI智能剪辑(newSmartAutoCut) - 一键成片/语音克隆/软件下载 | 小岳老师资源站</title>
+    <meta name="description" content="提供极影智能剪辑软件(newSmartAutoCut)最新版下载、独家保姆级教程、AI自动分镜素材及1对1技术支持。针对影视二创领域，影视解说，短剧解说，动漫解说，纪录片解说等，全平台，支持多语言解说模式，自动写文案，自动匹配镜头，一键配音，让视频创作效率提升300%。">
+    <meta name="keywords" content="极影AI, newSmartAutoCut, 智能剪辑软件, 自动分镜, 视频生成, AI配音, 极影AI激活码, 极影AI教程, 小岳老师, 影视解说神器, 自动剪辑">
     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- 👇 这里是修改后的标题 -->
-    <title>极影AI -newSmartAutoCut 智能剪辑革命 | 一键生成爆款视频</title>
-    
-    <!-- 👇 这里是新增的 SEO 描述 -->
-    <meta name="description" content="极影AI(newSmartAutoCut)是一款全自动智能剪辑软件，支持AI自动分镜、语音克隆、一键成片。月卡198元起，永久版支持全感知推理，让视频创作效率提升300%。" />
-    
-    <!-- 关键词优化 -->
-    <meta name="keywords" content="极影AI, 智能剪辑, 自动剪辑软件, 视频生成, AI配音, 自动分镜, newSmartAutoCut" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "极影AI (newSmartAutoCut)",
+      "operatingSystem": "Windows 10/11, macOS",
+      "applicationCategory": "VideoEditingApp",
+      "offers": {
+        "@type": "Offer",
+        "price": "198",
+        "priceCurrency": "CNY",
+        "description": "月卡198元，永久版998元"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "小岳老师",
+        "url": "https://v.douyin.com/tT8OAUGMh5s/"
+      }
+    }
+    </script>
+    <!-- ========================================================================== -->
 
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            background-image: linear-gradient(to bottom, #020617 0%, #0f172a 100%);
+        }
+
+        .pro-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .pro-card:hover {
+            background: rgba(30, 41, 59, 0.7);
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* 价格卡片特殊样式 */
+        .price-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .glow-top {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            background: radial-gradient(circle at top, rgba(14, 165, 233, 0.12), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes avatarBreath {
+            0%, 100% { 
+                transform: translateY(0); 
+                box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+            50% { 
+                transform: translateY(-6px); 
+                box-shadow: 0 0 35px rgba(6, 182, 212, 0.5);
+                border-color: rgba(6, 182, 212, 0.6);
+            }
+        }
+
+        .avatar-animate {
+            animation: avatarBreath 4s ease-in-out infinite;
+        }
+
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-20 px-4 relative">
+
+    <div class="glow-top"></div>
+
+    <!-- 1. 头部信息 -->
+    <div class="w-full max-w-2xl text-center mb-12 fade-in-up">
+        <div class="relative w-24 h-24 mx-auto mb-6 avatar-animate rounded-full border-2 border-slate-700/50 bg-slate-800">
+            <img src="./images/avatar.jpg" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=Felix'" alt="极影AI小岳老师头像" class="w-full h-full rounded-full object-cover">
+        </div>
+        
+        <h1 class="text-3xl font-bold text-white mb-3 tracking-tight">极影AI · 小岳老师</h1>
+        
+        <!-- 标签行 -->
+        <div class="flex items-center justify-center gap-3 mb-4">
+            <span class="px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-medium border border-cyan-500/20">
+                授权代理
+            </span>
+            <span class="w-1 h-1 rounded-full bg-slate-600"></span>
+            <span class="text-slate-400 text-sm">资深剪辑师</span>
+        </div>
+
+        <!-- 🏆 信任背书数据 -->
+        <div class="flex justify-center mb-6">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/5 border border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+                <i class="fa-solid fa-crown text-amber-500 text-xs"></i>
+                <span class="text-xs text-amber-200/80 font-medium tracking-wide">
+                    本站已累计服务 <span class="text-amber-400 font-bold text-sm">1500+</span> 会员
+                </span>
+            </div>
+        </div>
+        
+        <p class="text-slate-400 text-sm leading-7 max-w-lg mx-auto font-light">
+            专注分享 AI 视频剪辑黑科技。<br>提供最新软件安装包、独家保姆级教程及私人素材库。
+        </p>
+    </div>
+
+    <!-- 2. 链接区域 -->
+    <div class="w-full max-w-2xl space-y-4 fade-in-up delay-1">
+        
+        <!-- 飞书 -->
+        <a href="https://ai.feishu.cn/wiki/IcHYwPOVSihluBk8gnscg5Z7nnf" target="_blank" class="pro-card block rounded-xl p-5 group">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-book-open text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold text-slate-100 group-hover:text-white">飞书知识库</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">软件下载 / 视频教程 / 常见问题</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-white transition-transform group-hover:translate-x-1"></i>
+            </div>
+        </a>
+
+        <!-- 抖音 -->
+        <a href="https://v.douyin.com/tT8OAUGMh5s/" target="_blank" class="pro-card block rounded-xl p-5 group">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-pink-500/10 flex items-center justify-center text-pink-500 group-hover:bg-pink-600 group-hover:text-white transition-colors">
+                        <i class="fa-brands fa-tiktok text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold text-slate-100 group-hover:text-white">抖音主页</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">关注我看最新功能演示</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-right text-slate-600 group-hover:text-white transition-transform group-hover:translate-x-1"></i>
+            </div>
+        </a>
+
+        <!-- 💰 价格公示区域 -->
+        <div class="pro-card rounded-xl p-6 cursor-default">
+            
+            <!-- 标题 -->
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                    <i class="fa-solid fa-tags text-sm"></i>
+                </div>
+                <h3 class="text-base font-semibold text-white">官方统一售价</h3>
+            </div>
+
+            <!-- 价格网格 -->
+            <div class="grid grid-cols-3 gap-3 mb-6">
+                
+                <!-- 月付 -->
+                <div class="price-card flex flex-col items-center justify-center p-3 rounded-lg">
+                    <span class="text-xs text-slate-400 mb-1">正版月卡</span>
+                    <div class="flex items-baseline gap-0.5">
+                        <span class="text-xs text-slate-500">¥</span>
+                        <span class="text-lg font-bold text-white">198</span>
+                    </div>
+                </div>
+
+                <!-- 年付 -->
+                <div class="price-card flex flex-col items-center justify-center p-3 rounded-lg">
+                    <span class="text-xs text-slate-400 mb-1">正版年卡</span>
+                    <div class="flex items-baseline gap-0.5">
+                        <span class="text-xs text-slate-500">¥</span>
+                        <span class="text-lg font-bold text-emerald-400">498</span>
+                    </div>
+                </div>
+
+                <!-- 永久 -->
+                <div class="price-card flex flex-col items-center justify-center p-3 rounded-lg border-orange-500/30 bg-orange-500/5 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-6 h-6 bg-orange-500/20 rounded-bl-xl flex items-center justify-center">
+                        <i class="fa-solid fa-star text-[8px] text-orange-400"></i>
+                    </div>
+                    <span class="text-xs text-orange-200/80 mb-1">正版永久</span>
+                    <div class="flex items-baseline gap-0.5">
+                        <span class="text-xs text-orange-500/80">¥</span>
+                        <span class="text-lg font-bold text-orange-400">998</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 底部声明 -->
+            <div class="bg-slate-950/40 rounded-lg py-5 px-4 text-center border border-slate-800/50">
+                <p class="text-lg text-slate-200 flex items-center justify-center gap-2 mb-2 font-bold tracking-wide">
+                    <i class="fa-solid fa-shield-halved text-emerald-500 text-xl"></i>
+                    全网统一价格 · 官方严格控价
+                </p>
+                <p class="text-sm text-slate-400">欢迎监督与反馈</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 3. 联系区域 -->
+    <div class="w-full max-w-2xl mt-12 fade-in-up delay-2">
+        <div class="pro-card rounded-2xl p-6 md:p-8">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                
+                <!-- 左侧：信息区 -->
+                <div class="flex-1 w-full">
+                    <h2 class="text-2xl font-bold text-white mb-2">添加微信咨询</h2>
+                    <p class="text-slate-400 text-sm mb-6">扫码获取更多资源与服务</p>
+                    
+                    <!-- 权益列表 (新增：永久会员优质社群) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4 text-sm text-slate-300">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-lightbulb text-yellow-500 w-4 text-center"></i>
+                            <span class="font-medium">备注“极影”优先通过</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-clock text-green-500 w-4 text-center"></i>
+                            <span>24小时在线</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-gift text-pink-500 w-4 text-center"></i>
+                            <span>免费领影视素材包</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-screwdriver-wrench text-blue-500 w-4 text-center"></i>
+                            <span>1对1 远程安装协助</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-book text-cyan-500 w-4 text-center"></i>
+                            <span>会员赠独家训练营核心课件</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-users text-purple-500 w-4 text-center"></i>
+                            <span>训练营指导群【老手】</span>
+                        </div>
+                        <!-- 新增项 -->
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-crown text-amber-500 w-4 text-center"></i>
+                            <span class="text-amber-100/90 font-medium">永久会员优质社群</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧：二维码 -->
+                <div class="shrink-0 flex flex-col items-center justify-center">
+                    <div class="p-2 bg-white rounded-lg shadow-xl">
+                        <img src="./images/qrcode.png" alt="极影AI智能剪辑软件获取微信" class="w-36 h-36 object-contain">
+                    </div>
+                    <p class="text-xs text-slate-500 mt-2 font-medium">微信扫一扫</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-16 text-center text-slate-600 text-xs fade-in-up delay-3">
+        <p>© 2025 AI智能剪辑资源分享站</p>
+    </footer>
+
+</body>
 </html>
